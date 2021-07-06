@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:background="@android:color/transparent"
+    android:layout_marginBottom="5dp">
+
+    <TextView
+        android:id="@+id/transaction_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Williams Uba deposited 23,000 naira into your account"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/transaction_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="23, July 2021"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_below="@+id/transaction_details" />
+
+    <TextView
+        android:id="@+id/is_verified"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/transaction_details"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/transaction_date"
+        android:layout_alignBottom="@+id/transaction_date"
+        android:text="Verified"
+        android:drawableStart="@drawable/ic_transaction_verified"
+        android:drawablePadding="10dp"
+        android:layout_marginEnd="10dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+
+
+</RelativeLayout>
