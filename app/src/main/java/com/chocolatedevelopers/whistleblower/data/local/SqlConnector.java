@@ -12,7 +12,7 @@ import androidx.annotation.Nullable;
 import com.chocolatedevelopers.whistleblower.data.model.Card;
 import com.chocolatedevelopers.whistleblower.data.model.Levels;
 import com.chocolatedevelopers.whistleblower.data.model.Reports;
-import com.chocolatedevelopers.whistleblower.data.model.Transactions;
+import com.chocolatedevelopers.whistleblower.data.model.TransactionDetails;
 import com.chocolatedevelopers.whistleblower.data.model.User;
 
 import java.util.ArrayList;
@@ -34,6 +34,8 @@ import static com.chocolatedevelopers.whistleblower.data.local.SqlContract.TRANS
 import static com.chocolatedevelopers.whistleblower.data.local.SqlContract.USERS_TABLE;
 
 public class SqlConnector extends SQLiteOpenHelper {
+
+    //@TODO Save user's name and id to shared preference.
 
     @SuppressLint("StaticFieldLeak")
     private static SqlConnector instance;
@@ -69,16 +71,18 @@ public class SqlConnector extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void insertTransaction(Transactions transactions) {
+    public void insertTransaction(TransactionDetails transactions) {
         SQLiteDatabase database = instance.getWritableDatabase();
         try {
             ContentValues contentValues = new ContentValues();
             contentValues.put(Constants.COLUMN_AMOUNT, transactions.getAmount());
-            contentValues.put(Constants.COLUMN_USER_ID, transactions.getUserId());
-            contentValues.put(Constants.COLUMN_ITEM_BOUGHT, transactions.getItemBought());
+            contentValues.put(Constants.COLUMN_NAME, transactions.getUsername());
+            contentValues.put(Constants.COLUMN_ITEM_BOUGHT, transactions.getItem());
+            contentValues.put(Constants.COLUMN_ITEM_QUANTITY, transactions.getQuantity());
             contentValues.put(Constants.COLUMN_DATE, transactions.getDate());
-            contentValues.put(Constants.COLUMN_TRANSACTION_STATUS, transactions.getTransactionStatus().name());
-            contentValues.put(Constants.COLUMN_TRANSACTION_TYPE, transactions.getTransactionType().name());
+            contentValues.put(Constants.COLUMN_DATE, transactions.getTime());
+            contentValues.put(Constants.COLUMN_IS_FLAGGED, transactions.getIsFlagged());
+
 
             database.insertWithOnConflict(TRANSACTION_TABLE, null, contentValues,
                     SQLiteDatabase.CONFLICT_REPLACE);
@@ -151,35 +155,5 @@ public class SqlConnector extends SQLiteOpenHelper {
         }
     }
 
-    /*********************************************
-     * Returns the whole saved data pertaining All
-     * @param
-     * @return
-     */
-    public List<PdfMeta> getAllPdfMeta() {
-        List<PdfMeta> pdfMetas = new ArrayList<>();
-        String query = "SELECT * FROM exam_history_tbl ORDER BY time DESC";
-        Cursor cursor = getReadableDatabase().rawQuery(query, null);
-        if (cursor != null && cursor.moveToFirst()) {
-            do {
-                PdfMeta pdfMeta = new PdfMeta();
-                pdfMeta.setId(cursor.getInt(cursor.getColumnIndex(_ID)));
-                pdfMeta.setTitle(cursor.getString(cursor.getColumnIndex(TableConstants.COLUMN_TITLE)));
-                pdfMeta.setAuthor(cursor.getString(cursor.getColumnIndex(TableConstants.COLUMN_AUTHOR)));
-                pdfMeta.setCreationDate(cursor.getString(cursor.getColumnIndex(TableConstants.COLUMN_CREATION_DATE)));
-                pdfMeta.setCreator(cursor.getString(cursor.getColumnIndex(TableConstants.COLUMN_CREATOR)));
-                pdfMeta.setKeywords(cursor.getString(cursor.getColumnIndex(TableConstants.COLUMN_KEYWORDS)));
-                pdfMeta.setModDate(cursor.getString(cursor.getColumnIndex(TableConstants.COLUMN_MOD_DATE)));
-                pdfMeta.setProducer(cursor.getString(cursor.getColumnIndex(TableConstants.COLUMN_PRODUCER)));
-                pdfMeta.setTotalPages(cursor.getString(cursor.getColumnIndex(TableConstants.COLUMN_TOTAL_PAGES)));
-                pdfMeta.setSubject(cursor.getString(cursor.getColumnIndex(TableConstants.COLUMN_SUBJECT)));
 
-                pdfMetas.add(pdfMeta);
-            } while (cursor.moveToNext());
-        }
-        if (cursor != null) {
-            cursor.close();
-        }
-        return pdfMetas;
-    }
 }

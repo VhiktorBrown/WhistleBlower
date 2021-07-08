@@ -12,10 +12,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.chocolatedevelopers.whistleblower.R;
 import com.chocolatedevelopers.whistleblower.databinding.DialogTransactionDetailsBinding;
 import com.chocolatedevelopers.whistleblower.databinding.VerificationTransactionLayoutBinding;
-import com.chocolatedevelopers.whistleblower.model.TransactionDetails;
+import com.chocolatedevelopers.whistleblower.data.model.TransactionDetails;
 
 import java.util.ArrayList;
 

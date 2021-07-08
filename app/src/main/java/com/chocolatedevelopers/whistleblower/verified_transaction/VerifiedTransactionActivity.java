@@ -9,7 +9,7 @@ import android.view.MenuItem;
 
 import com.chocolatedevelopers.whistleblower.R;
 import com.chocolatedevelopers.whistleblower.databinding.ActivityNotificationsBinding;
-import com.chocolatedevelopers.whistleblower.model.TransactionDetails;
+import com.chocolatedevelopers.whistleblower.data.model.TransactionDetails;
 import com.chocolatedevelopers.whistleblower.utils.BottomNavigationUtils;
 import com.chocolatedevelopers.whistleblower.utils.Tools;
 import com.google.android.material.bottomnavigation.BottomNavigationView;

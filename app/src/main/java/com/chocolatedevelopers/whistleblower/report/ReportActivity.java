@@ -10,9 +10,8 @@ import android.widget.Toast;
 
 import com.chocolatedevelopers.whistleblower.R;
 import com.chocolatedevelopers.whistleblower.databinding.ActivityReportsBinding;
-import com.chocolatedevelopers.whistleblower.model.ReportDetails;
-import com.chocolatedevelopers.whistleblower.model.TransactionDetails;
-import com.chocolatedevelopers.whistleblower.transaction.TransactionAdapter;
+import com.chocolatedevelopers.whistleblower.data.model.ReportDetails;
+import com.chocolatedevelopers.whistleblower.data.model.TransactionDetails;
 import com.chocolatedevelopers.whistleblower.utils.BottomNavigationUtils;
 import com.chocolatedevelopers.whistleblower.utils.Tools;
 import com.google.android.material.bottomnavigation.BottomNavigationView;

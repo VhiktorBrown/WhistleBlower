@@ -4,14 +4,17 @@ package com.chocolatedevelopers.whistleblower.data.model;
 public class Card {
     private int cardId;
     private String cardNumber;
+    private String cardName;
     private String cardCVV;
     private String cardExpiryDate;
 
     public Card() {
     }
 
-    public Card(String cardNumber, String cardCVV, String cardExpiryDate) {
+    public Card(int cardId, String cardNumber, String cardName, String cardCVV, String cardExpiryDate) {
+        this.cardId = cardId;
         this.cardNumber = cardNumber;
+        this.cardName = cardName;
         this.cardCVV = cardCVV;
         this.cardExpiryDate = cardExpiryDate;
     }
@@ -30,6 +33,14 @@ public class Card {
 
     public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
+    }
+
+    public String getCardName() {
+        return cardName;
+    }
+
+    public void setCardName(String cardName) {
+        this.cardName = cardName;
     }
 
     public String getCardCVV() {

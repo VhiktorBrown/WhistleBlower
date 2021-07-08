@@ -1,16 +1,27 @@
 package com.chocolatedevelopers.whistleblower.data.model;
 
 public class TransactionDetails {
-    String item, username, amount, date, time;
-    boolean isFlagged;
+    private int transactionId;
+    String item, quantity,username, amount, date, time;
+    int isFlagged;
 
-    public TransactionDetails(String item, String username, String amount, String date, String time, boolean isFlagged) {
+    public TransactionDetails(int transactionId, String item, String quantity, String username, String amount, String date, String time, int isFlagged) {
+        this.transactionId = transactionId;
         this.item = item;
+        this.quantity = quantity;
         this.username = username;
         this.amount = amount;
         this.date = date;
         this.time = time;
         this.isFlagged = isFlagged;
+    }
+
+    public int getTransactionId() {
+        return transactionId;
+    }
+
+    public void setTransactionId(int transactionId) {
+        this.transactionId = transactionId;
     }
 
     public String getItem() {
@@ -19,6 +30,14 @@ public class TransactionDetails {
 
     public void setItem(String item) {
         this.item = item;
+    }
+
+    public String getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
     }
 
     public String getUsername() {
@@ -53,11 +72,11 @@ public class TransactionDetails {
         this.time = time;
     }
 
-    public boolean getIsFlagged() {
+    public int getIsFlagged() {
         return isFlagged;
     }
 
-    public void setIsFlagged(boolean isFlagged) {
+    public void setIsFlagged(int isFlagged) {
         this.isFlagged = isFlagged;
     }
 }

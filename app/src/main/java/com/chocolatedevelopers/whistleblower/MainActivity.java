@@ -3,7 +3,6 @@ package com.chocolatedevelopers.whistleblower;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -16,12 +15,11 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.chocolatedevelopers.whistleblower.databinding.ActivityMainBinding;
-import com.chocolatedevelopers.whistleblower.model.TransactionDetails;
+import com.chocolatedevelopers.whistleblower.data.model.TransactionDetails;
 import com.chocolatedevelopers.whistleblower.transaction.TransactionActivity;
 import com.chocolatedevelopers.whistleblower.transaction.TransactionAdapter;
 import com.chocolatedevelopers.whistleblower.utils.BottomNavigationUtils;
 import com.chocolatedevelopers.whistleblower.utils.Tools;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
