@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight="1"
-    android:fitsSystemWindows="false"
-    android:background="@color/white">
-
+    android:fitsSystemWindows="false">
+    
+    <com.borutsky.neumorphism.NeumorphicFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/navigation"
+        app:background_color="@color/white"
+        app:shape="rectangle">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/navigation">
+        android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,7 +42,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:text="H O M E"
+                    android:text="W H I S T L E  B L O W E R"
                     android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                     android:textColor="@color/colorPrimaryDark"
                     android:textStyle="bold" />
@@ -51,18 +56,288 @@
             android:layout_height="0px"
             android:background="@color/grey_20" />
 
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/view_pager"
-            android:layout_width="match_parent"
-            android:layout_height="240dp" />
-
-        <LinearLayout
-            android:id="@+id/layoutDots"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:minHeight="@dimen/spacing_mlarge"
-            android:orientation="horizontal" />
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:layout_marginLeft="@dimen/spacing_mlarge"
+            android:layout_marginRight="@dimen/spacing_mlarge"
+            android:layout_marginTop="@dimen/spacing_middle"
+            android:visibility="visible"
+            app:cardBackgroundColor="@color/colorPrimaryDark"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="3dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/world_map" />
+
+                <LinearLayout
+                    android:id="@+id/card_linear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_large">
+
+                    <ImageView
+                        android:id="@+id/card_logo"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="end|right"
+                        android:background="@drawable/shape_round_small"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_mastercard_new" />
+
+                    <TextView
+                        android:id="@+id/card_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_medium"
+                        android:fontFamily="@font/muli"
+                        android:text="**** **** **** 9867"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
+                        android:textColor="@android:color/white" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/spacing_small" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="EXPIRE"
+                                android:fontFamily="@font/muli"
+                                android:layout_marginEnd="20dp"
+                                android:textColor="@color/grey_10" />
+
+                            <TextView
+                                android:id="@+id/expire"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/muli"
+                                android:layout_marginEnd="20dp"
+                                android:text="05 / 24"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                                android:textColor="@android:color/white" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="@dimen/spacing_xlarge"
+                            android:layout_height="0dp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/cvv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="CVV"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Body1"
+                                android:textColor="@color/grey_10" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/muli"
+                                android:text="981"
+                                android:textAppearance="@style/Base.TextAppearance.AppCompat.Subhead"
+                                android:textColor="@android:color/white" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/spacing_medium" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ACCOUNT NAME"
+                       android:fontFamily="@font/muli"
+                        android:textColor="@color/grey_10" />
+
+                    <TextView
+                        android:id="@+id/account_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/muli"
+                        android:text="SALES DEPARTMENT"
+                        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                        android:textColor="@android:color/white" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/spacing_medium" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/white"
+                        android:text="ORDER GOODS"
+                        android:textColor="@color/colorPrimaryDark" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+            <com.borutsky.neumorphism.NeumorphicFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:background_color="@color/white"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:padding="10dp"
+                app:corner_radius="20dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:id="@+id/budget_linear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Budget"
+                        android:fontFamily="@font/muli"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$ 1,500,000,000"
+                        android:textColor="@color/grey_800"
+                        android:layout_marginTop="5dp"
+                        android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/balance_linear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Balance"
+                            android:fontFamily="@font/muli"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$ 900,246,000"
+                            android:textColor="@color/grey_800"
+                            android:layout_marginTop="5dp"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/budget_linear"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Expected Profit"
+                            android:fontFamily="@font/muli"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$ 1,800,000,000"
+                            android:textColor="@color/grey_800"
+                            android:layout_marginTop="5dp"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/salary_linear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/balance_linear"
+                        android:layout_alignEnd="@+id/balance_linear"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_below="@+id/balance_linear"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Salary"
+                            android:fontFamily="@font/muli"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$ 300,000"
+                            android:textColor="@color/grey_800"
+                            android:layout_marginTop="5dp"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Level 2"
+                        android:layout_below="@+id/salary_linear"
+                        android:layout_centerHorizontal="true"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:fontFamily="@font/muli"
+                        android:layout_marginTop="5dp"
+                        android:textAllCaps="true"/>
+
+                </RelativeLayout>
+
+            </com.borutsky.neumorphism.NeumorphicFrameLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -70,26 +345,50 @@
             android:orientation="vertical"
             android:padding="@dimen/spacing_mxlarge">
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
             <TextView
+                android:id="@+id/all_transaction_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/spacing_medium"
+                android:fontFamily="@font/muli"
                 android:text="All Transactions"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-                android:textColor="@color/grey_60" />
+                android:textSize="18sp"
+                android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/view_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="View all"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_alignTop="@+id/all_transaction_text"
+                    android:layout_alignBottom="@+id/all_transaction_text"
+                    android:layout_alignParentEnd="true" />
+
+            </RelativeLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scrollbars="vertical"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="10dp"
+                tools:listitem="@layout/transaction_layout"/>
 
         </LinearLayout>
 
     </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+    </com.borutsky.neumorphism.NeumorphicFrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"
@@ -100,7 +399,8 @@
         android:background="@color/white"
         app:itemIconTint="@color/color_state_white"
         app:itemTextColor="@color/color_state_white"
-        app:menu="@menu/menu_main" />
-
+        app:menu="@menu/menu_main"
+        app:itemTextAppearanceActive="@style/TextStyle"
+        app:itemTextAppearanceInactive="@style/TextStyle"/>
 
 </RelativeLayout>

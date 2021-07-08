@@ -7,18 +7,18 @@
         android:title="Home" />
 
     <item
-        android:id="@+id/accounts"
-        android:icon="@drawable/ic_accounts"
-        android:title="Accounts" />
-
-    <item
-        android:id="@+id/alerts"
+        android:id="@+id/notifications"
         android:icon="@drawable/ic_alerts"
-        android:title="Alerts" />
+        android:title="Notificatons" />
 
     <item
-        android:id="@+id/verified"
-        android:icon="@drawable/ic_verified"
-        android:title="Verified" />
+        android:id="@+id/flagged"
+        android:icon="@drawable/ic_flagged"
+        android:title="Flagged" />
+
+    <item
+        android:id="@+id/reports"
+        android:icon="@drawable/ic_report"
+        android:title="Reports" />
 
 </menu>
