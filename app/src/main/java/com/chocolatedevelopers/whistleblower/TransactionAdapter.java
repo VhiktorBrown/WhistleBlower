@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.chocolatedevelopers.whistleblower.model.TransactionDetails;
+import com.chocolatedevelopers.whistleblower.data.model.TransactionDetails;
 
 import java.util.ArrayList;
 

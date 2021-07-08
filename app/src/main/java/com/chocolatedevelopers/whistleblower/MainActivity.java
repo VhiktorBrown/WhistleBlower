@@ -1,6 +1,5 @@
 package com.chocolatedevelopers.whistleblower;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
@@ -10,7 +9,6 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -23,13 +21,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.chocolatedevelopers.whistleblower.accounts.AccountsActivity;
-import com.chocolatedevelopers.whistleblower.alerts.AlertsActivity;
-import com.chocolatedevelopers.whistleblower.model.TransactionDetails;
+import com.chocolatedevelopers.whistleblower.data.model.TransactionDetails;
 import com.chocolatedevelopers.whistleblower.utils.BottomNavigationUtils;
 import com.chocolatedevelopers.whistleblower.utils.Tools;
-import com.chocolatedevelopers.whistleblower.utils.ViewAnimation;
-import com.chocolatedevelopers.whistleblower.verified.VerifiedActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
