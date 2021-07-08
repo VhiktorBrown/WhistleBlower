@@ -8,7 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.chocolatedevelopers.whistleblower.R;
-import com.chocolatedevelopers.whistleblower.databinding.ActivityNotificationsBinding;
+import com.chocolatedevelopers.whistleblower.databinding.ActivityVerifiedTransactionsBinding;
 import com.chocolatedevelopers.whistleblower.data.model.TransactionDetails;
 import com.chocolatedevelopers.whistleblower.utils.BottomNavigationUtils;
 import com.chocolatedevelopers.whistleblower.utils.Tools;
@@ -19,14 +19,14 @@ import java.util.ArrayList;
 public class VerifiedTransactionActivity extends AppCompatActivity {
     private static final int ACTIVITY_NUM = 1;
     private BottomNavigationView navigation;
-    ActivityNotificationsBinding binding;
+    ActivityVerifiedTransactionsBinding binding;
     ArrayList<TransactionDetails> transactionDetailsArrayList;
     VerifiedTransactionAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityNotificationsBinding.inflate(getLayoutInflater());
+        binding = ActivityVerifiedTransactionsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         initToolbar();
@@ -58,16 +58,29 @@ public class VerifiedTransactionActivity extends AppCompatActivity {
 
         transactionDetailsArrayList = new ArrayList<>();
 
-        transactionDetailsArrayList.add(new TransactionDetails("8 packs of A4 paper", "Williams", "3400", "05, July 2021", "09:23am", true));
-        transactionDetailsArrayList.add(new TransactionDetails("Expenses for Salt lake conference", "Tina", "20000", "22, June 2021", "02:10pm",true));
-        transactionDetailsArrayList.add(new TransactionDetails("15 Office chairs for the main lounge", "Richard", "23000", "02, June 2021", "01:02pm",true));
-        transactionDetailsArrayList.add(new TransactionDetails("Workmanship for the Electrician to fix the meter", "James", "2300", "05, May 2021", "10:17am", true));
+        transactionDetailsArrayList.add(new TransactionDetails(1,
+                "Williams", "Bought 8 packs of A4 paper", "45", "3400", "05, July 2021", "09:23am"
+                , 1));
+        transactionDetailsArrayList.add(new TransactionDetails(2
+                , "Tina", "paid for Expenses for Salt lake ", "23", "20000", "22, June 2021", "02" +
+                ":10pm", 1));
+        transactionDetailsArrayList.add(new TransactionDetails(3, "Richard",
+                "bought 15 Office chairs for the ", "56", "23000","02, June 2021", "01:02pm", 1));
+        transactionDetailsArrayList.add(new TransactionDetails(4, "James",
+                "paid for Workmanship for the Electrician to fix the meter","1", "2300",
+                "05, May 2021", "10:17am", 1));
 
-        transactionDetailsArrayList.add(new TransactionDetails("8 packs of A4 paper", "Williams", "3400", "05, July 2021", "09:23am", true));
-        transactionDetailsArrayList.add(new TransactionDetails("Expenses for Salt lake conference", "Tina", "20000", "22, June 2021", "02:10pm", true));
-        transactionDetailsArrayList.add(new TransactionDetails("15 Office chairs for the main lounge", "Richard", "23000", "02, June 2021", "01:02pm", true));
-        transactionDetailsArrayList.add(new TransactionDetails("Workmanship for the Electrician to fix the meter", "James", "2300", "05, May 2021", "10:17am", true));
-
+        transactionDetailsArrayList.add(new TransactionDetails(5,
+                "Williams", "Bought 8 packs of A4 paper", "45", "3400", "05, July 2021", "09:23am"
+                , 1));
+        transactionDetailsArrayList.add(new TransactionDetails(6
+                , "Tina", "paid for Expenses for Salt lake ", "23", "20000", "22, June 2021", "02" +
+                ":10pm", 1));
+        transactionDetailsArrayList.add(new TransactionDetails(7, "Richard",
+                "bought 15 Office chairs for the ", "56", "23000","02, June 2021", "01:02pm", 1));
+        transactionDetailsArrayList.add(new TransactionDetails(8, "James",
+                "paid for Workmanship for the Electrician to fix the meter","1", "2300",
+                "05, May 2021", "10:17am", 1));
         adapter = new VerifiedTransactionAdapter(this, transactionDetailsArrayList);
         binding.recyclerView.setAdapter(adapter);
     }

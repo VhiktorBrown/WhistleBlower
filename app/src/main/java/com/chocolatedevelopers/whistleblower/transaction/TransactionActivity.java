@@ -35,15 +35,26 @@ public class TransactionActivity extends AppCompatActivity {
 
         transactionDetailsArrayList = new ArrayList<>();
 
-        transactionDetailsArrayList.add(new TransactionDetails(1,2, "8 packs of A4 paper", "45", "3400", "05, July 2021", "09:23am", 0));
-        transactionDetailsArrayList.add(new TransactionDetails(2,4, "Expenses for Salt lake conference",  "45",  "20000", "22, June 2021", "02:10pm",1));
-        transactionDetailsArrayList.add(new TransactionDetails(3,1, "15 Office chairs for the main lounge",  "45", "23000", "02, June 2021", "01:02pm",0));
-        transactionDetailsArrayList.add(new TransactionDetails(4,2,"Workmanship for the Electrician to fix the meter",  "45", "2300", "05, May 2021", "10:17am", 1));
+        transactionDetailsArrayList.add(new TransactionDetails(1,"Johnny", "8 packs of A4 paper",
+                "45", "3400", "05, July 2021", "09:23am", 0));
+        transactionDetailsArrayList.add(new TransactionDetails(2,"Gad", "Expenses for Salt lake " +
+                "conference",  "45",  "20000", "22, June 2021", "02:10pm",1));
+        transactionDetailsArrayList.add(new TransactionDetails(3,"Rado", "15 Office chairs for " +
+                "the" +
+                " " +
+                "main lounge",  "45", "23000", "02, June 2021", "01:02pm",0));
+        transactionDetailsArrayList.add(new TransactionDetails(4,"Ratt","Workmanship for the " +
+                "Electrician to fix the meter",  "45", "2300", "05, May 2021", "10:17am", 1));
 
-        transactionDetailsArrayList.add(new TransactionDetails(5, 1, "8 packs of A4 paper",  "45", "3400", "05, July 2021", "09:23am", 1));
-        transactionDetailsArrayList.add(new TransactionDetails(6, 2,"Expenses for Salt lake conference",  "45", "20000", "22, June 2021", "02:10pm", 0));
-        transactionDetailsArrayList.add(new TransactionDetails(7, 3, "15 Office chairs for the main lounge",  "45", "23000", "02, June 2021", "01:02pm", 1));
-        transactionDetailsArrayList.add(new TransactionDetails(8, 2, "Workmanship for the Electrician to fix the meter",  "45", "2300", "05, May 2021", "10:17am", 0));
+        transactionDetailsArrayList.add(new TransactionDetails(5, "Bush", "8 packs of A4 paper",
+                "45"
+                , "3400", "05, July 2021", "09:23am", 1));
+        transactionDetailsArrayList.add(new TransactionDetails(6, "Expi","Expenses for Salt lake " +
+                "conference",  "45", "20000", "22, June 2021", "02:10pm", 0));
+        transactionDetailsArrayList.add(new TransactionDetails(7, "Darh", "15 Office chairs for " +
+                "the main lounge",  "45", "23000", "02, June 2021", "01:02pm", 1));
+        transactionDetailsArrayList.add(new TransactionDetails(8, "Ben", "Workmanship for the " +
+                "Electrician to fix the meter",  "45", "2300", "05, May 2021", "10:17am", 0));
 
         adapter = new TransactionAdapter(this, transactionDetailsArrayList);
         binding.recyclerView.setAdapter(adapter);

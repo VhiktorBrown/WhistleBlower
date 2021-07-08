@@ -5,7 +5,8 @@ public class TransactionDetails {
     String item, quantity,username, amount, date, time;
     int isFlagged;
 
-    public TransactionDetails(int transactionId, String item, String quantity, String username, String amount, String date, String time, int isFlagged) {
+    public TransactionDetails(int transactionId, String username, String item, String quantity,
+                              String amount, String date, String time, int isFlagged) {
         this.transactionId = transactionId;
         this.item = item;
         this.quantity = quantity;
@@ -78,5 +79,9 @@ public class TransactionDetails {
 
     public void setIsFlagged(int isFlagged) {
         this.isFlagged = isFlagged;
+    }
+
+    public boolean isFlagged() {
+        return isFlagged != 0;
     }
 }

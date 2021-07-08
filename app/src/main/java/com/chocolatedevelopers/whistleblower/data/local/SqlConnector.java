@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 
 import com.chocolatedevelopers.whistleblower.data.model.Card;
 import com.chocolatedevelopers.whistleblower.data.model.Levels;
-import com.chocolatedevelopers.whistleblower.data.model.Reports;
+import com.chocolatedevelopers.whistleblower.data.model.ReportDetails;
 import com.chocolatedevelopers.whistleblower.data.model.TransactionDetails;
 import com.chocolatedevelopers.whistleblower.data.model.User;
 
@@ -138,15 +138,15 @@ public class SqlConnector extends SQLiteOpenHelper {
         }
     }
 
-    public void insertReports(Reports reports) {
+    public void insertReports(ReportDetails reports) {
         SQLiteDatabase database = instance.getWritableDatabase();
         try {
             ContentValues contentValues = new ContentValues();
-            contentValues.put(Constants.COLUMN_MONTH, reports.getMonth());
+            contentValues.put(Constants.COLUMN_MONTH, reports.getReportMonth());
             contentValues.put(Constants.COLUMN_START_BALANCE, reports.getStartBalance());
             contentValues.put(Constants.COLUMN_END_BALANCE, reports.getEndBalance());
             contentValues.put(Constants.COLUMN_PROFIT, reports.getProfit());
-            contentValues.put(Constants.COLUMN_NUMBER_OF_FLAGGED_TRANSACTIONS, reports.getNumberOfFlaggedTransactions());
+            contentValues.put(Constants.COLUMN_NUMBER_OF_FLAGGED_TRANSACTIONS, reports.getFlaggedTransactions());
 
             database.insertWithOnConflict(TRANSACTION_TABLE, null, contentValues,
                     SQLiteDatabase.CONFLICT_REPLACE);

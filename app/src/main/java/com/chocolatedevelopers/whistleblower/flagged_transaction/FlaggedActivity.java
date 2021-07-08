@@ -48,15 +48,25 @@ public class FlaggedActivity extends AppCompatActivity {
 
         flaggedArrayList = new ArrayList<>();
 
-        flaggedArrayList.add(new TransactionDetails(1,2, "8 packs of A4 paper", "45", "3400", "05, July 2021", "09:23am", 0));
-        flaggedArrayList.add(new TransactionDetails(2,4, "Expenses for Salt lake conference",  "45",  "20000", "22, June 2021", "02:10pm",1));
-        flaggedArrayList.add(new TransactionDetails(3,1, "15 Office chairs for the main lounge",  "45", "23000", "02, June 2021", "01:02pm",0));
-        flaggedArrayList.add(new TransactionDetails(4,2,"Workmanship for the Electrician to fix the meter",  "45", "2300", "05, May 2021", "10:17am", 1));
+        flaggedArrayList.add(new TransactionDetails(1,"Obi", "8 packs of A4 paper", "45", "3400",
+                "05, July 2021", "09:23am", 0));
+        flaggedArrayList.add(new TransactionDetails(2,"John", "Expenses for Salt lake conference",
+                "45",  "20000", "22, June 2021", "02:10pm",1));
+        flaggedArrayList.add(new TransactionDetails(3,"Cletus", "15 Office chairs for the main " +
+                "lounge"
+                ,  "45", "23000", "02, June 2021", "01:02pm",0));
+        flaggedArrayList.add(new TransactionDetails(4,"Sam","Workmanship for the Electrician to " +
+                "fix the meter",  "45", "2300", "05, May 2021", "10:17am", 1));
 
-        flaggedArrayList.add(new TransactionDetails(5, 1, "8 packs of A4 paper",  "45", "3400", "05, July 2021", "09:23am", 1));
-        flaggedArrayList.add(new TransactionDetails(6, 2,"Expenses for Salt lake conference",  "45", "20000", "22, June 2021", "02:10pm", 0));
-        flaggedArrayList.add(new TransactionDetails(7, 3, "15 Office chairs for the main lounge",  "45", "23000", "02, June 2021", "01:02pm", 1));
-        flaggedArrayList.add(new TransactionDetails(8, 2, "Workmanship for the Electrician to fix the meter",  "45", "2300", "05, May 2021", "10:17am", 0));
+        flaggedArrayList.add(new TransactionDetails(5, "Gabby", "8 packs of A4 paper",  "45",
+                "3400", "05, July 2021", "09:23am", 1));
+        flaggedArrayList.add(new TransactionDetails(6, "Constance","Expenses for Salt lake " +
+                "conference",  "45", "20000", "22, June 2021", "02:10pm", 0));
+        flaggedArrayList.add(new TransactionDetails(7, "Peaky", "15 Office chairs for the main " +
+                "lounge",  "45", "23000", "02, June 2021", "01:02pm", 1));
+        flaggedArrayList.add(new TransactionDetails(8, "Dust", "Workmanship for the Electrician " +
+                "to fix" +
+                " the meter",  "45", "2300", "05, May 2021", "10:17am", 0));
 
         adapter = new FlaggedAdapter(this, flaggedArrayList);
         binding.recyclerView.setAdapter(adapter);
