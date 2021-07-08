@@ -1,0 +1,79 @@
+<com.borutsky.neumorphism.NeumorphicFrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    app:corner_radius="20dp"
+    app:background_color="@color/white"
+    android:layout_marginBottom="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/transaction_image"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerVertical="true"
+            app:civ_shadow="true"
+            android:src="@drawable/ic_done"
+            app:civ_shadow_color="@color/green_200" />
+
+        <LinearLayout
+            android:id="@+id/transaction_linear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/transaction_image"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_toStartOf="@+id/transaction_amount"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/transaction_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="8 packs of A4 paper"
+                android:fontFamily="@font/muli"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/transaction_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Williams"
+                android:fontFamily="@font/muli"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20sp"
+                android:layout_marginTop="10dp" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/info"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/ic_info" />
+
+        <TextView
+            android:id="@+id/transaction_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$ 3000"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_alignBottom="@+id/transaction_linear"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+</com.borutsky.neumorphism.NeumorphicFrameLayout>

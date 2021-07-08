@@ -1,4 +1,4 @@
-package com.chocolatedevelopers.whistleblower.notification;
+package com.chocolatedevelopers.whistleblower.verified_transaction;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -10,19 +10,18 @@ import android.view.MenuItem;
 import com.chocolatedevelopers.whistleblower.R;
 import com.chocolatedevelopers.whistleblower.databinding.ActivityNotificationsBinding;
 import com.chocolatedevelopers.whistleblower.model.TransactionDetails;
-import com.chocolatedevelopers.whistleblower.transaction.TransactionAdapter;
 import com.chocolatedevelopers.whistleblower.utils.BottomNavigationUtils;
 import com.chocolatedevelopers.whistleblower.utils.Tools;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
-public class NotificationActivity extends AppCompatActivity {
+public class VerifiedTransactionActivity extends AppCompatActivity {
     private static final int ACTIVITY_NUM = 1;
     private BottomNavigationView navigation;
     ActivityNotificationsBinding binding;
     ArrayList<TransactionDetails> transactionDetailsArrayList;
-    NotificationAdapter adapter;
+    VerifiedTransactionAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +68,7 @@ public class NotificationActivity extends AppCompatActivity {
         transactionDetailsArrayList.add(new TransactionDetails("15 Office chairs for the main lounge", "Richard", "23000", "02, June 2021", "01:02pm", true));
         transactionDetailsArrayList.add(new TransactionDetails("Workmanship for the Electrician to fix the meter", "James", "2300", "05, May 2021", "10:17am", true));
 
-        adapter = new NotificationAdapter(this, transactionDetailsArrayList);
+        adapter = new VerifiedTransactionAdapter(this, transactionDetailsArrayList);
         binding.recyclerView.setAdapter(adapter);
     }
 }

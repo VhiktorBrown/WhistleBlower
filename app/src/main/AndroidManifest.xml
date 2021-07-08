@@ -11,7 +11,7 @@
         android:theme="@style/Theme.WhistleBlower">
         <activity android:name=".transaction.TransactionActivity"></activity>
         <activity android:name=".report.ReportActivity" />
-        <activity android:name=".notification.NotificationActivity" />
+        <activity android:name=".verified_transaction.VerifiedTransactionActivity" />
         <activity android:name=".flagged_transaction.FlaggedActivity" />
         <activity android:name=".register.RegisterActivity" />
         <activity android:name=".login.LoginActivity" />
