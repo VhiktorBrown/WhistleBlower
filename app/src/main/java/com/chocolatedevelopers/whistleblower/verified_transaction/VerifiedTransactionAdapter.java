@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.chocolatedevelopers.whistleblower.R;
 import com.chocolatedevelopers.whistleblower.databinding.DialogTransactionDetailsBinding;
 import com.chocolatedevelopers.whistleblower.databinding.VerificationTransactionLayoutBinding;
 import com.chocolatedevelopers.whistleblower.data.model.TransactionDetails;
@@ -49,7 +50,13 @@ public class VerifiedTransactionAdapter extends RecyclerView.Adapter<VerifiedTra
         holder.binding.info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                showDetailsDialog(transactionDetailsArrayList.get(position).getUsername(),
+                        transactionDetailsArrayList.get(position).getItem(),
+                        transactionDetailsArrayList.get(position).getQuantity(),
+                        transactionDetailsArrayList.get(position).getAmount(),
+                        transactionDetailsArrayList.get(position).getDate(),
+                        transactionDetailsArrayList.get(position).getDetails(),
+                        transactionDetailsArrayList.get(position).getTime());
             }
         });
             }
@@ -67,7 +74,7 @@ public class VerifiedTransactionAdapter extends RecyclerView.Adapter<VerifiedTra
         }
     }
 
-    private void showDetailsDialog(String username, String item, String quantity, String amount, String date, String time) {
+    private void showDetailsDialog(String username, String item, String quantity, String amount, String date, String details, String time) {
         dialog = new Dialog(context);
         DialogTransactionDetailsBinding dialogBinding = DialogTransactionDetailsBinding.inflate(dialog.getLayoutInflater());
         dialog.setContentView(dialogBinding.getRoot());
@@ -82,7 +89,10 @@ public class VerifiedTransactionAdapter extends RecyclerView.Adapter<VerifiedTra
         dialogBinding.transactionDetailsAmount.setText("$ " + amount);
         dialogBinding.dateTime.setText(date +
                 " by " + time);
+        dialogBinding.transactionDetails.setText(details);
 
+        dialogBinding.transactionDetails.setTextColor(context.getResources().getColor(R.color.green_400));
+        dialogBinding.moreInfoLayout.setBackgroundColor(context.getResources().getColor(R.color.green_400));
 
         dialogBinding.btClose.setOnClickListener(new View.OnClickListener() {
             @Override

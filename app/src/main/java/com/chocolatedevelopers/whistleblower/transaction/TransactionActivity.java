@@ -8,6 +8,10 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.chocolatedevelopers.whistleblower.R;
+import com.chocolatedevelopers.whistleblower.data.local.SharedPref;
+import com.chocolatedevelopers.whistleblower.data.local.SqlConnector;
+import com.chocolatedevelopers.whistleblower.data.model.Levels;
+import com.chocolatedevelopers.whistleblower.data.model.User;
 import com.chocolatedevelopers.whistleblower.databinding.ActivityTransactionBinding;
 import com.chocolatedevelopers.whistleblower.data.model.TransactionDetails;
 import com.chocolatedevelopers.whistleblower.utils.Tools;
@@ -18,6 +22,8 @@ public class TransactionActivity extends AppCompatActivity {
     ActivityTransactionBinding binding;
     TransactionAdapter adapter;
     ArrayList<TransactionDetails> transactionDetailsArrayList;
+    Levels levels;
+    User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +32,8 @@ public class TransactionActivity extends AppCompatActivity {
 
         initToolbar();
         initComponents();
+        user = SharedPref.getInstance().getCurrentlySignedInUser();
+        levels = SqlConnector.getInstance(this).getLevel(user.getLevelId());
     }
 
     private void initComponents(){
@@ -35,27 +43,7 @@ public class TransactionActivity extends AppCompatActivity {
 
         transactionDetailsArrayList = new ArrayList<>();
 
-        transactionDetailsArrayList.add(new TransactionDetails(1,"Johnny", "8 packs of A4 paper",
-                "45", "3400", "05, July 2021", "09:23am", 0));
-        transactionDetailsArrayList.add(new TransactionDetails(2,"Gad", "Expenses for Salt lake " +
-                "conference",  "45",  "20000", "22, June 2021", "02:10pm",1));
-        transactionDetailsArrayList.add(new TransactionDetails(3,"Rado", "15 Office chairs for " +
-                "the" +
-                " " +
-                "main lounge",  "45", "23000", "02, June 2021", "01:02pm",0));
-        transactionDetailsArrayList.add(new TransactionDetails(4,"Ratt","Workmanship for the " +
-                "Electrician to fix the meter",  "45", "2300", "05, May 2021", "10:17am", 1));
-
-        transactionDetailsArrayList.add(new TransactionDetails(5, "Bush", "8 packs of A4 paper",
-                "45"
-                , "3400", "05, July 2021", "09:23am", 1));
-        transactionDetailsArrayList.add(new TransactionDetails(6, "Expi","Expenses for Salt lake " +
-                "conference",  "45", "20000", "22, June 2021", "02:10pm", 0));
-        transactionDetailsArrayList.add(new TransactionDetails(7, "Darh", "15 Office chairs for " +
-                "the main lounge",  "45", "23000", "02, June 2021", "01:02pm", 1));
-        transactionDetailsArrayList.add(new TransactionDetails(8, "Ben", "Workmanship for the " +
-                "Electrician to fix the meter",  "45", "2300", "05, May 2021", "10:17am", 0));
-
+       transactionDetailsArrayList = SqlConnector.getInstance(this).getAllTransactions(levels.getLevelId());
         adapter = new TransactionAdapter(this, transactionDetailsArrayList);
         binding.recyclerView.setAdapter(adapter);
     }

@@ -235,6 +235,7 @@
                         android:textColor="@color/black" />
 
                     <TextView
+                        android:id="@+id/budget"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="$ 1,500,000,000"
@@ -261,6 +262,7 @@
                             android:textColor="@color/black" />
 
                         <TextView
+                            android:id="@+id/balance"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="$ 900,246,000"
@@ -287,6 +289,7 @@
                             android:textColor="@color/black" />
 
                         <TextView
+                            android:id="@+id/expected_profit"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="$ 1,800,000,000"
@@ -317,6 +320,7 @@
                             android:textColor="@color/black" />
 
                         <TextView
+                            android:id="@+id/salary"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="$ 300,000"
@@ -327,6 +331,7 @@
                     </LinearLayout>
 
                     <TextView
+                        android:id="@+id/level"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Level 2"

@@ -1,20 +1,22 @@
 package com.chocolatedevelopers.whistleblower.data.model;
 
-
 public class Levels {
     private int levelId;
     private int cardId;
-    private double budgetAmount;
-    private double balance;
-    private double profitExpected;
-    private double levelSalary;
-    private double transactionLimit;
+
+    //I changed these to String from double for ease
+    //Because the database is saving 'CHAR'.
+    private String budgetAmount;
+    private String balance;
+    private String profitExpected;
+    private String levelSalary;
+    private String transactionLimit;
 
     public Levels() {
     }
 
-    public Levels(int cardId, double budgetAmount, double balance, double profitExpected,
-                  double levelSalary, double transactionLimit) {
+    public Levels(int levelId, int cardId, String budgetAmount, String balance, String profitExpected, String levelSalary, String transactionLimit) {
+        this.levelId = levelId;
         this.cardId = cardId;
         this.budgetAmount = budgetAmount;
         this.balance = balance;
@@ -39,43 +41,43 @@ public class Levels {
         this.cardId = cardId;
     }
 
-    public double getBudgetAmount() {
+    public String getBudgetAmount() {
         return budgetAmount;
     }
 
-    public void setBudgetAmount(double budgetAmount) {
+    public void setBudgetAmount(String budgetAmount) {
         this.budgetAmount = budgetAmount;
     }
 
-    public double getBalance() {
+    public String getBalance() {
         return balance;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(String balance) {
         this.balance = balance;
     }
 
-    public double getProfitExpected() {
+    public String getProfitExpected() {
         return profitExpected;
     }
 
-    public void setProfitExpected(double profitExpected) {
+    public void setProfitExpected(String profitExpected) {
         this.profitExpected = profitExpected;
     }
 
-    public double getLevelSalary() {
+    public String getLevelSalary() {
         return levelSalary;
     }
 
-    public void setLevelSalary(double levelSalary) {
+    public void setLevelSalary(String levelSalary) {
         this.levelSalary = levelSalary;
     }
 
-    public double getTransactionLimit() {
+    public String getTransactionLimit() {
         return transactionLimit;
     }
 
-    public void setTransactionLimit(double transactionLimit) {
+    public void setTransactionLimit(String transactionLimit) {
         this.transactionLimit = transactionLimit;
     }
 }

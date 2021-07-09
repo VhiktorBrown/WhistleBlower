@@ -53,6 +53,7 @@ public class FlaggedAdapter extends RecyclerView.Adapter<FlaggedAdapter.FlaggedV
                         transactionDetailsArrayList.get(position).getItem(),
                         transactionDetailsArrayList.get(position).getAmount(),
                         transactionDetailsArrayList.get(position).getDate(),
+                        transactionDetailsArrayList.get(position).getDetails(),
                         transactionDetailsArrayList.get(position).getTime());
             }
         });
@@ -71,7 +72,7 @@ public class FlaggedAdapter extends RecyclerView.Adapter<FlaggedAdapter.FlaggedV
         }
     }
 
-    private void showDetailsDialog(String username, String item, String amount, String date, String time) {
+    private void showDetailsDialog(String username, String item, String amount, String date, String details, String time) {
         dialog = new Dialog(context);
         DialogTransactionDetailsBinding dialogBinding = DialogTransactionDetailsBinding.inflate(dialog.getLayoutInflater());
         dialog.setContentView(dialogBinding.getRoot());
@@ -86,6 +87,7 @@ public class FlaggedAdapter extends RecyclerView.Adapter<FlaggedAdapter.FlaggedV
         dialogBinding.transactionDetailsAmount.setText("$ " + amount);
         dialogBinding.dateTime.setText(date +
                 " by " + time);
+        dialogBinding.transactionDetails.setText(details);
 
         dialogBinding.btClose.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,6 +96,7 @@ public class FlaggedAdapter extends RecyclerView.Adapter<FlaggedAdapter.FlaggedV
             }
         });
         dialogBinding.moreInfoLayout.setBackgroundColor(context.getResources().getColor(R.color.red_400));
+        dialogBinding.transactionDetails.setTextColor(context.getResources().getColor(R.color.red_400));
         dialogBinding.moreInfo.setText("This transaction has been flagged as malicious after running our diagnostics on it. Please, contact your admin in your organization.");
     }
 }

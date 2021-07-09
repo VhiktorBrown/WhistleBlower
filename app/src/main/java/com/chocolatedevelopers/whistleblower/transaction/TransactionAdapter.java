@@ -51,7 +51,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         holder.binding.transactionUsername.setText(transactionDetailsArrayList.get(position).getUsername());
         holder.binding.transactionItem.setText(transactionDetailsArrayList.get(position).getQuantity() +
                 " of " + transactionDetailsArrayList.get(position).getItem());
-        holder.binding.transactionAmount.setText(transactionDetailsArrayList.get(position).getAmount());
+        holder.binding.transactionAmount.setText("$ "+transactionDetailsArrayList.get(position).getAmount());
 
         holder.binding.info.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +62,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
                         transactionDetailsArrayList.get(position).getAmount(),
                         transactionDetailsArrayList.get(position).getDate(),
                         transactionDetailsArrayList.get(position).getTime(),
+                        transactionDetailsArrayList.get(position).getDetails(),
                         transactionDetailsArrayList.get(position).isFlagged());
             }
         });
@@ -80,7 +81,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         }
     }
 
-    private void showDetailsDialog(String username, String item, String quantity, String amount, String date, String time, boolean isFlagged) {
+    private void showDetailsDialog(String username, String item, String quantity, String amount, String date, String time, String details, boolean isFlagged) {
         dialog = new Dialog(context);
         DialogTransactionDetailsBinding dialogBinding = DialogTransactionDetailsBinding.inflate(dialog.getLayoutInflater());
         dialog.setContentView(dialogBinding.getRoot());
@@ -95,13 +96,16 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         dialogBinding.transactionDetailsAmount.setText("$ " + amount);
         dialogBinding.dateTime.setText(date +
                 " by " + time);
+        dialogBinding.transactionDetails.setText(details);
 
         if(isFlagged){
             dialogBinding.image.setBackground(context.getResources().getDrawable(R.drawable.ic_cancel));
             dialogBinding.moreInfoLayout.setBackgroundColor(context.getResources().getColor(R.color.red_400));
+            dialogBinding.transactionDetails.setTextColor(context.getResources().getColor(R.color.red_400));
             dialogBinding.moreInfo.setText("This transaction has been flagged as malicious after running our diagnostics on it. Please, contact your admin in your organization.");
         } else {
             dialogBinding.image.setBackground(context.getResources().getDrawable(R.drawable.ic_done));
+            dialogBinding.transactionDetails.setTextColor(context.getResources().getColor(R.color.green_400));
         }
 
         dialogBinding.btClose.setOnClickListener(new View.OnClickListener() {

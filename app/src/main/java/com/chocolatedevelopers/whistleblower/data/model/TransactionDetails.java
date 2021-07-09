@@ -1,17 +1,32 @@
 package com.chocolatedevelopers.whistleblower.data.model;
 
 public class TransactionDetails {
-    private int transactionId;
-    String item, quantity,username, amount, date, time;
+    private int transactionId, levelId;
+    String item, quantity,username, amount, details, date, time;
     int isFlagged;
 
-    public TransactionDetails(int transactionId, String username, String item, String quantity,
-                              String amount, String date, String time, int isFlagged) {
-        this.transactionId = transactionId;
+    public TransactionDetails(){}
+
+    public TransactionDetails(int levelId, String item, String quantity, String username, String amount, String details, String date, String time, int isFlagged) {
+        this.levelId = levelId;
         this.item = item;
         this.quantity = quantity;
         this.username = username;
         this.amount = amount;
+        this.details = details;
+        this.date = date;
+        this.time = time;
+        this.isFlagged = isFlagged;
+    }
+
+    public TransactionDetails(int transactionId, int levelId, String item, String quantity, String username, String amount, String details, String date, String time, int isFlagged) {
+        this.transactionId = transactionId;
+        this.levelId = levelId;
+        this.item = item;
+        this.quantity = quantity;
+        this.username = username;
+        this.amount = amount;
+        this.details = details;
         this.date = date;
         this.time = time;
         this.isFlagged = isFlagged;
@@ -23,6 +38,14 @@ public class TransactionDetails {
 
     public void setTransactionId(int transactionId) {
         this.transactionId = transactionId;
+    }
+
+    public int getLevelId() {
+        return levelId;
+    }
+
+    public void setLevelId(int levelId) {
+        this.levelId = levelId;
     }
 
     public String getItem() {
@@ -57,6 +80,14 @@ public class TransactionDetails {
         this.amount = amount;
     }
 
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
     public String getDate() {
         return date;
     }
@@ -81,7 +112,7 @@ public class TransactionDetails {
         this.isFlagged = isFlagged;
     }
 
-    public boolean isFlagged() {
+    public boolean isFlagged(){
         return isFlagged != 0;
     }
 }
