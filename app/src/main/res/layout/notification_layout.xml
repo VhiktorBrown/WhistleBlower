@@ -1,0 +1,66 @@
+<com.borutsky.neumorphism.NeumorphicFrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    app:corner_radius="20dp"
+    app:background_color="@color/white"
+    android:layout_marginBottom="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/notification_image"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerVertical="true"
+            app:civ_border_width="1dp"
+            android:layout_marginStart="10dp"
+            app:civ_shadow="true"
+            android:src="@drawable/ic_done"
+            app:civ_shadow_color="@color/green_200" />
+
+       <TextView
+           android:id="@+id/notification_username_item"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Williams paid the workmanship fee to the electrician for the meter "
+           android:fontFamily="@font/muli"
+           android:textStyle="bold"
+           android:textSize="16sp"
+           android:layout_toEndOf="@+id/notification_image"
+           android:layout_alignTop="@+id/notification_image"
+           android:layout_alignBottom="@+id/notification_image"
+           android:layout_marginTop="10dp"
+           android:layout_marginBottom="10dp" />
+
+
+        <TextView
+            android:id="@+id/notification_date_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="23, July 2021 at 09:28am"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/muli"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/notification_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$ 2800"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:fontFamily="@font/muli" />
+
+    </RelativeLayout>
+
+</com.borutsky.neumorphism.NeumorphicFrameLayout>

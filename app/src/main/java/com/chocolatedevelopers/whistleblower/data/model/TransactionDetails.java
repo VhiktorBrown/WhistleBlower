@@ -1,22 +1,32 @@
 package com.chocolatedevelopers.whistleblower.data.model;
 
 public class TransactionDetails {
-    String name, amount, transaction_type, date, isVerified;
+    String item, username, amount, date, time;
+    boolean isFlagged;
 
-    public TransactionDetails(String name, String amount, String transaction_type, String date, String isVerified) {
-        this.name = name;
+    public TransactionDetails(String item, String username, String amount, String date, String time, boolean isFlagged) {
+        this.item = item;
+        this.username = username;
         this.amount = amount;
-        this.transaction_type = transaction_type;
         this.date = date;
-        this.isVerified = isVerified;
+        this.time = time;
+        this.isFlagged = isFlagged;
     }
 
-    public String getName() {
-        return name;
+    public String getItem() {
+        return item;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setItem(String item) {
+        this.item = item;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getAmount() {
@@ -27,14 +37,6 @@ public class TransactionDetails {
         this.amount = amount;
     }
 
-    public String getTransaction_type() {
-        return transaction_type;
-    }
-
-    public void setTransaction_type(String transaction_type) {
-        this.transaction_type = transaction_type;
-    }
-
     public String getDate() {
         return date;
     }
@@ -43,11 +45,19 @@ public class TransactionDetails {
         this.date = date;
     }
 
-    public String getIsVerified() {
-        return isVerified;
+    public String getTime() {
+        return time;
     }
 
-    public void setIsVerified(String isVerified) {
-        this.isVerified = isVerified;
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public boolean getIsFlagged() {
+        return isFlagged;
+    }
+
+    public void setIsFlagged(boolean isFlagged) {
+        this.isFlagged = isFlagged;
     }
 }

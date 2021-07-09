@@ -9,9 +9,9 @@ import androidx.annotation.NonNull;
 
 import com.chocolatedevelopers.whistleblower.MainActivity;
 import com.chocolatedevelopers.whistleblower.R;
-import com.chocolatedevelopers.whistleblower.accounts.AccountsActivity;
-import com.chocolatedevelopers.whistleblower.alerts.AlertsActivity;
-import com.chocolatedevelopers.whistleblower.verified.VerifiedActivity;
+import com.chocolatedevelopers.whistleblower.flagged_transaction.FlaggedActivity;
+import com.chocolatedevelopers.whistleblower.notification.NotificationActivity;
+import com.chocolatedevelopers.whistleblower.report.ReportActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class BottomNavigationUtils {
@@ -26,18 +26,18 @@ public class BottomNavigationUtils {
                     context.startActivity(intent);
                     ((Activity)context).finish();
                     return true;
-                }else if (itemId == R.id.accounts) {
-                    Intent intent = new Intent(context, AccountsActivity.class);
+                }else if (itemId == R.id.flagged) {
+                    Intent intent = new Intent(context, FlaggedActivity.class);
                     context.startActivity(intent);
                     ((Activity)context).finish();
                     return true;
-                }else if (itemId == R.id.alerts) {
-                    Intent intent = new Intent(context, AlertsActivity.class);
+                }else if (itemId == R.id.notifications) {
+                    Intent intent = new Intent(context, NotificationActivity.class);
                     context.startActivity(intent);
                     ((Activity)context).finish();
                     return true;
-                }else if (itemId == R.id.verified) {
-                    Intent intent = new Intent(context, VerifiedActivity.class);
+                }else if (itemId == R.id.reports) {
+                    Intent intent = new Intent(context, ReportActivity.class);
                     context.startActivity(intent);
                     ((Activity)context).finish();
                     return true;

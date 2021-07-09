@@ -18,10 +18,8 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_centerVertical="true"
-            app:civ_border_width="1dp"
-            app:civ_border_color="@color/colorPrimaryDark"
             app:civ_shadow="true"
-            android:src="@drawable/ic_follow"
+            android:src="@drawable/ic_cancel"
             app:civ_shadow_color="@color/green_200" />
 
         <LinearLayout
@@ -29,9 +27,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/transaction_image"
-            android:layout_toStartOf="@+id/transaction_amount"
             android:layout_marginTop="20dp"
             android:layout_marginStart="10dp"
+            android:layout_toStartOf="@+id/transaction_amount"
             android:orientation="vertical">
 
             <TextView

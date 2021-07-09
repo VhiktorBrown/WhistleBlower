@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.borutsky.neumorphism.NeumorphicFrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:corner_radius="20dp"
+    app:background_color="@color/white"
+    android:layout_marginBottom="5dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/report_month"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="January"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:textSize="22sp"
+            android:textColor="@color/colorPrimaryDark"
+            android:fontFamily="@font/muli" />
+
+        <TextView
+            android:id="@+id/start_balance_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start Balance:"
+            app:layout_constraintStart_toStartOf="@+id/report_month"
+            app:layout_constraintTop_toBottomOf="@+id/report_month"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/start_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$ 1,500,000,000"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="20dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@+id/start_balance_text"
+            app:layout_constraintBottom_toBottomOf="@+id/start_balance_text"/>
+
+        <TextView
+            android:id="@+id/end_balance_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="End Balance:"
+            app:layout_constraintStart_toStartOf="@+id/report_month"
+            app:layout_constraintTop_toBottomOf="@+id/start_balance_text"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/end_balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$ 90,000,000"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="20dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@+id/end_balance_text"
+            app:layout_constraintBottom_toBottomOf="@+id/end_balance_text"/>
+
+        <TextView
+            android:id="@+id/profit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profit:"
+            app:layout_constraintStart_toStartOf="@+id/report_month"
+            app:layout_constraintTop_toBottomOf="@+id/end_balance_text"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/profit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$ 250,000,000"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="20dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@+id/profit_text"
+            app:layout_constraintBottom_toBottomOf="@+id/profit_text"/>
+
+        <TextView
+            android:id="@+id/flagged_transactions_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Flagged transactions:"
+            app:layout_constraintStart_toStartOf="@+id/report_month"
+            app:layout_constraintTop_toBottomOf="@+id/profit_text"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/flagged_transactions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="14"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="20dp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@+id/flagged_transactions_text"
+            app:layout_constraintBottom_toBottomOf="@+id/flagged_transactions_text"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.borutsky.neumorphism.NeumorphicFrameLayout>

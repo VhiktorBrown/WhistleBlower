@@ -4,11 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".alerts.AlertsActivity">
+    android:layout_weight="1"
+    android:fitsSystemWindows="false"
+    tools:context=".transaction.TransactionActivity">
+
+    <com.borutsky.neumorphism.NeumorphicFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/navigation"
+        app:background_color="@color/white"
+        app:shape="rectangle">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:background="@android:color/white"
         android:fitsSystemWindows="true"
         android:orientation="vertical">
@@ -29,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="A L E R T S"
+                android:text="T R A N S A C T I O N S"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold" />
@@ -38,17 +51,17 @@
 
     </androidx.appcompat.widget.Toolbar>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            tools:listitem="@layout/transaction_layout"/>
+
     </LinearLayout>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"
-        android:background="@color/white"
-        app:itemIconTint="@color/color_state_white"
-        app:itemTextColor="@color/color_state_white"
-        app:menu="@menu/menu_main" />
+    </androidx.core.widget.NestedScrollView>
+
+    </com.borutsky.neumorphism.NeumorphicFrameLayout>
 
 </RelativeLayout>
