@@ -11,11 +11,19 @@ public class User {
     public User() {
     }
 
+    public User(int userId, int levelId, String username, String password) {
+        this.userId = userId;
+        this.levelId = levelId;
+        this.username = username;
+        this.password = password;
+    }
+
     public User(int levelId, String username, String password) {
         this.levelId = levelId;
         this.username = username;
         this.password = password;
     }
+
 
     public int getUserId() {
         return userId;

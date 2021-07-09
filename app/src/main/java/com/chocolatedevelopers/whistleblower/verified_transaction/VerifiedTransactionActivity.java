@@ -1,4 +1,4 @@
-package com.chocolatedevelopers.whistleblower.notification;
+package com.chocolatedevelopers.whistleblower.verified_transaction;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -8,30 +8,38 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.chocolatedevelopers.whistleblower.R;
-import com.chocolatedevelopers.whistleblower.databinding.ActivityNotificationsBinding;
-import com.chocolatedevelopers.whistleblower.model.TransactionDetails;
-import com.chocolatedevelopers.whistleblower.transaction.TransactionAdapter;
+import com.chocolatedevelopers.whistleblower.data.local.SharedPref;
+import com.chocolatedevelopers.whistleblower.data.local.SqlConnector;
+import com.chocolatedevelopers.whistleblower.data.model.Levels;
+import com.chocolatedevelopers.whistleblower.data.model.User;
+import com.chocolatedevelopers.whistleblower.databinding.ActivityVerifiedTransactionsBinding;
+import com.chocolatedevelopers.whistleblower.data.model.TransactionDetails;
 import com.chocolatedevelopers.whistleblower.utils.BottomNavigationUtils;
 import com.chocolatedevelopers.whistleblower.utils.Tools;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
-public class NotificationActivity extends AppCompatActivity {
+public class VerifiedTransactionActivity extends AppCompatActivity {
     private static final int ACTIVITY_NUM = 1;
     private BottomNavigationView navigation;
-    ActivityNotificationsBinding binding;
+    ActivityVerifiedTransactionsBinding binding;
     ArrayList<TransactionDetails> transactionDetailsArrayList;
-    NotificationAdapter adapter;
+    VerifiedTransactionAdapter adapter;
+    User user;
+    Levels levels;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityNotificationsBinding.inflate(getLayoutInflater());
+        binding = ActivityVerifiedTransactionsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         initToolbar();
         initComponent();
+
+        user = SharedPref.getInstance().getCurrentlySignedInUser();
+        levels = SqlConnector.getInstance(this).getLevel(user.getLevelId());
     }
 
     private void initToolbar() {
@@ -59,17 +67,9 @@ public class NotificationActivity extends AppCompatActivity {
 
         transactionDetailsArrayList = new ArrayList<>();
 
-        transactionDetailsArrayList.add(new TransactionDetails("8 packs of A4 paper", "Williams", "3400", "05, July 2021", "09:23am", true));
-        transactionDetailsArrayList.add(new TransactionDetails("Expenses for Salt lake conference", "Tina", "20000", "22, June 2021", "02:10pm",true));
-        transactionDetailsArrayList.add(new TransactionDetails("15 Office chairs for the main lounge", "Richard", "23000", "02, June 2021", "01:02pm",true));
-        transactionDetailsArrayList.add(new TransactionDetails("Workmanship for the Electrician to fix the meter", "James", "2300", "05, May 2021", "10:17am", true));
+        transactionDetailsArrayList = SqlConnector.getInstance(this).getVerifiedOrDenied(0, levels.getLevelId());
 
-        transactionDetailsArrayList.add(new TransactionDetails("8 packs of A4 paper", "Williams", "3400", "05, July 2021", "09:23am", true));
-        transactionDetailsArrayList.add(new TransactionDetails("Expenses for Salt lake conference", "Tina", "20000", "22, June 2021", "02:10pm", true));
-        transactionDetailsArrayList.add(new TransactionDetails("15 Office chairs for the main lounge", "Richard", "23000", "02, June 2021", "01:02pm", true));
-        transactionDetailsArrayList.add(new TransactionDetails("Workmanship for the Electrician to fix the meter", "James", "2300", "05, May 2021", "10:17am", true));
-
-        adapter = new NotificationAdapter(this, transactionDetailsArrayList);
+        adapter = new VerifiedTransactionAdapter(this, transactionDetailsArrayList);
         binding.recyclerView.setAdapter(adapter);
     }
 }

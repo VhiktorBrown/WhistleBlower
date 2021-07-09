@@ -14,12 +14,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.chocolatedevelopers.whistleblower.databinding.DialogTransactionDetailsBinding;
 import com.chocolatedevelopers.whistleblower.databinding.ReportLayoutBinding;
-import com.chocolatedevelopers.whistleblower.databinding.TransactionLayoutBinding;
-import com.chocolatedevelopers.whistleblower.model.ReportDetails;
-import com.chocolatedevelopers.whistleblower.model.TransactionDetails;
+import com.chocolatedevelopers.whistleblower.data.model.ReportDetails;
+import com.chocolatedevelopers.whistleblower.data.model.TransactionDetails;
 
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 public class ReportAdapter extends RecyclerView.Adapter<ReportAdapter.ReportViewHolder> {
 

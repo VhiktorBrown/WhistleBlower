@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import com.chocolatedevelopers.whistleblower.MainActivity;
 import com.chocolatedevelopers.whistleblower.R;
 import com.chocolatedevelopers.whistleblower.flagged_transaction.FlaggedActivity;
-import com.chocolatedevelopers.whistleblower.notification.NotificationActivity;
+import com.chocolatedevelopers.whistleblower.verified_transaction.VerifiedTransactionActivity;
 import com.chocolatedevelopers.whistleblower.report.ReportActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -32,7 +32,7 @@ public class BottomNavigationUtils {
                     ((Activity)context).finish();
                     return true;
                 }else if (itemId == R.id.notifications) {
-                    Intent intent = new Intent(context, NotificationActivity.class);
+                    Intent intent = new Intent(context, VerifiedTransactionActivity.class);
                     context.startActivity(intent);
                     ((Activity)context).finish();
                     return true;

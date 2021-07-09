@@ -1,4 +1,4 @@
-package com.chocolatedevelopers.whistleblower.model;
+package com.chocolatedevelopers.whistleblower.data.model;
 
 public class ReportDetails {
     String reportMonth, startBalance, endBalance, profit, flaggedTransactions;

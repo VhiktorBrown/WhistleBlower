@@ -9,7 +9,7 @@
     <item
         android:id="@+id/notifications"
         android:icon="@drawable/ic_alerts"
-        android:title="Notificatons" />
+        android:title="Verified" />
 
     <item
         android:id="@+id/flagged"

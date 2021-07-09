@@ -6,13 +6,15 @@
     android:layout_height="match_parent"
     android:layout_weight="1"
     android:fitsSystemWindows="false"
-    tools:context=".notification.NotificationActivity">
+    tools:context=".verified_transaction.VerifiedTransactionActivity">
 
     <com.borutsky.neumorphism.NeumorphicFrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:background_color="@color/white"
         android:layout_above="@+id/navigation"
+        android:focusableInTouchMode="true"
+        android:descendantFocusability="beforeDescendants"
         app:shape="rectangle">
 
         <androidx.core.widget.NestedScrollView
@@ -42,7 +44,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
-                            android:text="N O T I F I C A T I O N S"
+                            android:text="V E R I F I E D  T R A N S A C T I O N S"
                             android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
                             android:textColor="@color/colorPrimaryDark"
                             android:textStyle="bold" />
@@ -56,7 +58,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scrollbars="vertical"
-                    tools:listitem="@layout/notification_layout"/>
+                    tools:listitem="@layout/verification_transaction_layout"/>
 
             </LinearLayout>
 

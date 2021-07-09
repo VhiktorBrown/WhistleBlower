@@ -13,6 +13,8 @@
         android:layout_height="match_parent"
         app:background_color="@color/white"
         android:layout_above="@+id/navigation"
+        android:focusableInTouchMode="true"
+        android:descendantFocusability="beforeDescendants"
         app:shape="rectangle">
 
         <androidx.core.widget.NestedScrollView
