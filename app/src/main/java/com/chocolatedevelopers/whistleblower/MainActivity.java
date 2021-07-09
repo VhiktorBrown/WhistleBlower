@@ -56,10 +56,11 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        initToolbar();
-        initComponent();
         user = SharedPref.getInstance().getCurrentlySignedInUser();
         level =  SqlConnector.getInstance(this).getLevel(user.getLevelId());
+
+        initToolbar();
+        initComponent();
     }
 
     private void initComponent(){

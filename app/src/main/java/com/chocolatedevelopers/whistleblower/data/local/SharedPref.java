@@ -24,10 +24,12 @@ public class SharedPref {
     }
 
     public void saveCurrentlySignedUser(User user) {
+        editor = WhistleApplication.getSharedPref().edit();
         editor.putString(USERNAME, user.getUsername());
         editor.putString(PASSWORD, user.getPassword());
         editor.putInt(LEVEL_ID, user.getLevelId());
         editor.putInt(USER_ID, user.getUserId());
+        editor.apply();
     }
 
     public User getCurrentlySignedInUser() {

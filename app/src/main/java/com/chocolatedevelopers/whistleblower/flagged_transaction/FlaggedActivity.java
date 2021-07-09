@@ -36,12 +36,11 @@ public class FlaggedActivity extends AppCompatActivity {
         binding = ActivityFlaggedBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        initToolbar();
-        initComponent();
 
         user = SharedPref.getInstance().getCurrentlySignedInUser();
         levels = SqlConnector.getInstance(this).getLevel(user.getLevelId());
-
+        initToolbar();
+        initComponent();
     }
 
     private void initComponent(){

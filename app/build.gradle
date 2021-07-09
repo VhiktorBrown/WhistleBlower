@@ -47,4 +47,6 @@ dependencies {
     implementation 'com.wdullaer:materialdatetimepicker:3.2.0'         // date & time picker
     implementation 'com.mikhaellopez:circularimageview:3.2.0'          // circle image view
     implementation 'com.github.Borutsky:neumorphism-android:1.0.0-alpha01'   //neumorphic feature
+    //Lottie
+    implementation 'com.airbnb.android:lottie:3.7.0'
 }

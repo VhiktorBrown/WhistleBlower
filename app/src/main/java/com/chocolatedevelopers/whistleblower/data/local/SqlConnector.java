@@ -17,6 +17,7 @@ import com.chocolatedevelopers.whistleblower.data.model.User;
 
 import java.util.ArrayList;
 
+import static android.provider.BaseColumns._ID;
 import static com.chocolatedevelopers.whistleblower.data.local.SqlContract.CARD_TABLE;
 import static com.chocolatedevelopers.whistleblower.data.local.SqlContract.Constants;
 import static com.chocolatedevelopers.whistleblower.data.local.SqlContract.Constants.COLUMN_BALANCE;
@@ -133,7 +134,8 @@ public class SqlConnector extends SQLiteOpenHelper {
     public ArrayList<TransactionDetails> getAllTransactions(int levelId) {
         SQLiteDatabase database = this.getReadableDatabase();
         ArrayList<TransactionDetails> all = new ArrayList<>();
-        String command = "SELECT * FROM " + TRANSACTION_TABLE + " WHERE " + COLUMN_LEVEL_ID + " = ? "  + " ORDER BY id DESC";
+        String command = "SELECT * FROM " + TRANSACTION_TABLE + " WHERE " + COLUMN_LEVEL_ID + " =" +
+                " ? "  + " ORDER BY _id DESC";
         Cursor cursor = database.rawQuery(command, new String[]{String.valueOf(levelId)});
         if(cursor.moveToFirst())
             do {
@@ -161,7 +163,8 @@ public class SqlConnector extends SQLiteOpenHelper {
     public ArrayList<TransactionDetails> getVerifiedOrDenied(int isFlagged, int levelId) {
         SQLiteDatabase database = this.getReadableDatabase();
         ArrayList<TransactionDetails> all = new ArrayList<>();
-        String command = "SELECT * FROM " + TRANSACTION_TABLE + " WHERE " + COLUMN_IS_FLAGGED + " = ? AND " + COLUMN_LEVEL_ID + " = ?" + " ORDER BY id DESC";
+        String command = "SELECT * FROM " + TRANSACTION_TABLE + " WHERE " + COLUMN_IS_FLAGGED +
+                " = ? AND " + COLUMN_LEVEL_ID + " = ?" + " ORDER BY _id DESC";
         Cursor cursor = database.rawQuery(command, new String[]{String.valueOf(isFlagged), String.valueOf(levelId)});
         if(cursor.moveToFirst())
             do {
@@ -200,11 +203,17 @@ public class SqlConnector extends SQLiteOpenHelper {
     public User getUser(String username, String password) {
         SQLiteDatabase database = this.getReadableDatabase();
         String command = "SELECT * FROM " + USERS_TABLE + " WHERE " + COLUMN_NAME + " = ? AND " + COLUMN_PASSWORD + " = ?";
-        Cursor cursor = database.rawQuery(command, new String[]{String.valueOf(username), String.valueOf(password)});
-        if(cursor != null)
+        Cursor cursor = database.rawQuery(command, new String[]{username, password});
+        if(cursor != null) {
             cursor.moveToFirst();
-        return new User(cursor.getInt(0), cursor.getString(1),
-                cursor.getString(2));
+            return new User(
+                    cursor.getInt(0),
+                    cursor.getInt(1),
+                    cursor.getString(2),
+                    cursor.getString(3)
+            );
+        }
+        return null;
     }
 
     public void insertUserList(ArrayList<User> userList){
@@ -228,7 +237,7 @@ public class SqlConnector extends SQLiteOpenHelper {
     public ArrayList<User> getAllUsers() {
         SQLiteDatabase database = this.getReadableDatabase();
         ArrayList<User> all = new ArrayList<>();
-        String command = "SELECT * FROM " + USERS_TABLE + " ORDER BY id DESC";
+        String command = "SELECT * FROM " + USERS_TABLE + " ORDER BY _id DESC";
         Cursor cursor = database.rawQuery(command, null);
         if(cursor.moveToFirst())
             do {
@@ -327,10 +336,8 @@ public class SqlConnector extends SQLiteOpenHelper {
     //This method queries the levels table to get details for a single level using the level ID.
     public Levels getLevel(int levelId) {
         SQLiteDatabase database = this.getReadableDatabase();
-        Cursor cursor = database.query(LEVELS_TABLE, new String[]{COLUMN_LEVEL_ID, COLUMN_CARD_ID,
-                COLUMN_BUDGET_AMOUNT, COLUMN_BALANCE, COLUMN_PROFIT_EXPECTED,
-                COLUMN_LEVEL_SALARY, COLUMN_TRANSACTION_LIMIT},
-                COLUMN_LEVEL_ID, new String[]{String.valueOf(levelId)}, null, null, null);
+        String command = "SELECT * FROM " + LEVELS_TABLE + " WHERE _id = ?";
+        Cursor cursor = database.rawQuery(command, new String[]{String.valueOf(levelId)});
         if(cursor != null)
             cursor.moveToFirst();
         return new Levels(cursor.getInt(0), cursor.getInt(1),
@@ -361,7 +368,7 @@ public class SqlConnector extends SQLiteOpenHelper {
     public ArrayList<Levels> getAllLevels() {
         SQLiteDatabase database = this.getReadableDatabase();
         ArrayList<Levels> all = new ArrayList<>();
-        String command = "SELECT * FROM " + LEVELS_TABLE + " ORDER BY id DESC";
+        String command = "SELECT * FROM " + LEVELS_TABLE + " ORDER BY _id DESC";
         Cursor cursor = database.rawQuery(command, null);
         if(cursor.moveToFirst())
             do {
@@ -414,6 +421,4 @@ public class SqlConnector extends SQLiteOpenHelper {
             }
         }
     }
-
-
 }

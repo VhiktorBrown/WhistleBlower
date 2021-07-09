@@ -5,18 +5,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.database.sqlite.SQLiteConstraintException;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.chocolatedevelopers.whistleblower.MainActivity;
 import com.chocolatedevelopers.whistleblower.R;
+import com.chocolatedevelopers.whistleblower.data.local.SharedPref;
 import com.chocolatedevelopers.whistleblower.data.local.SqlConnector;
 import com.chocolatedevelopers.whistleblower.data.model.Card;
 import com.chocolatedevelopers.whistleblower.data.model.Levels;
 import com.chocolatedevelopers.whistleblower.data.model.TransactionDetails;
 import com.chocolatedevelopers.whistleblower.data.model.User;
 import com.chocolatedevelopers.whistleblower.databinding.ActivityLoginBinding;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
@@ -27,6 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     ArrayList<Card> cardArrayList;
     ArrayList<TransactionDetails> transactionDetails;
     ActivityLoginBinding binding;
+    private static final String TAG = "LoginActivity";
 
     //TODO Let's not forget to add a progress dialog that would display when user is trying to log in
 
@@ -49,24 +53,26 @@ public class LoginActivity extends AppCompatActivity {
 
         if(userArrayList.size() == 0 && levelsArrayList.size() == 0){
             addDummyData();
+            addDummyTransactions();
         }
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(transactionDetails.size() == 0){
-                    addDummyTransactions();
-                }
                 String username = binding.username.getText().toString();
                 String password = binding.password.getText().toString();
-                 User user = SqlConnector.getInstance(LoginActivity.this).getUser(username, password);
-
-                 if(user.getUsername().equals(username) && user.getPassword().equals(password)){
-                     startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                     finish();
-                 } else {
-                     displayToast("Username and Password incorrect. Please try again");
-                 }
+                if (username.isEmpty() && password.isEmpty()) {
+                    Toast.makeText(LoginActivity.this, "Fields cannot be empty", Toast.LENGTH_SHORT).show();
+                }else {
+                    User user = SqlConnector.getInstance(LoginActivity.this).getUser(username, password);
+                    if(user.getUsername().equals(username) && user.getPassword().equals(password)){
+                        SharedPref.getInstance().saveCurrentlySignedUser(user);
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        finish();
+                    } else {
+                        displayToast("Username and Password incorrect. Please try again");
+                    }
+                }
             }
         });
     }

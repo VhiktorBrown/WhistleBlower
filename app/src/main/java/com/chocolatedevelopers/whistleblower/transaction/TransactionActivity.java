@@ -30,10 +30,10 @@ public class TransactionActivity extends AppCompatActivity {
         binding = ActivityTransactionBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        initToolbar();
-        initComponents();
         user = SharedPref.getInstance().getCurrentlySignedInUser();
         levels = SqlConnector.getInstance(this).getLevel(user.getLevelId());
+        initToolbar();
+        initComponents();
     }
 
     private void initComponents(){

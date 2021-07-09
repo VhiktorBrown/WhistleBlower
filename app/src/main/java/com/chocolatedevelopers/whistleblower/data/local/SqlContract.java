@@ -17,7 +17,7 @@ public final class SqlContract {
 
     public static final String DATABASE_NAME = "whistle.db";
     public static final int DATABASE_VERSION = 1;
-    public static final String TRANSACTION_TABLE = "transaction_tbl";
+    public static final String TRANSACTION_TABLE = "transactions_tbl";
     public static final String USERS_TABLE = "users_tbl";
     public static final String LEVELS_TABLE = "levels_tbl";
     public static final String REPORTS_TABLE = "reports_tbl";
@@ -75,7 +75,7 @@ public final class SqlContract {
             Constants.COLUMN_DATE + " CHAR, " +
             Constants.COLUMN_TIME + " CHAR, " +
             Constants.COLUMN_DETAILS + " CHAR, " +
-            Constants.COLUMN_IS_FLAGGED + " INTEGER, " +
+            Constants.COLUMN_IS_FLAGGED + " INTEGER " +
             " )";
 
     public static final String SQL_CREATE_USER_TBL = "CREATE TABLE users_tbl ( " +
@@ -91,7 +91,7 @@ public final class SqlContract {
             Constants.COLUMN_BUDGET_AMOUNT + " CHAR, " +
             Constants.COLUMN_BALANCE + " CHAR, " +
             Constants.COLUMN_PROFIT_EXPECTED + " CHAR, " +
-            Constants.COLUMN_LEVEL_SALARY + " CHAR " +
+            Constants.COLUMN_LEVEL_SALARY + " CHAR, " +
             Constants.COLUMN_TRANSACTION_LIMIT + " CHAR " +
             " )";
 
@@ -99,7 +99,7 @@ public final class SqlContract {
             _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             Constants.COLUMN_CARD_NUMBER + " CHAR, " +
             Constants.COLUMN_CARD_CVV + " CHAR, " +
-            Constants.COLUMN_CARD_EXPIRY_DATE + " CHAR " +
+            Constants.COLUMN_CARD_EXPIRY_DATE + " CHAR, " +
             Constants.COLUMN_CARD_NAME + " CHAR " +
             " )";
 
