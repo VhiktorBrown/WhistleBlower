@@ -6,6 +6,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.InsetDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +20,7 @@ import android.widget.Toast;
 import com.chocolatedevelopers.whistleblower.data.local.SharedPref;
 import com.chocolatedevelopers.whistleblower.databinding.ActivityMainBinding;
 import com.chocolatedevelopers.whistleblower.data.model.TransactionDetails;
+import com.chocolatedevelopers.whistleblower.databinding.DialogLoadingProcessBinding;
 import com.chocolatedevelopers.whistleblower.login.LoginActivity;
 import com.chocolatedevelopers.whistleblower.transaction.TransactionActivity;
 import com.chocolatedevelopers.whistleblower.transaction.TransactionAdapter;
@@ -162,5 +166,21 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), item.getTitle(), Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+    /**
+     * This dialog is for the lottie animation
+     * that simulates processing order
+     */
+    public void showLoadingProcessDialog() {
+        Dialog loadingProcessDialog = new Dialog(this);
+        DialogLoadingProcessBinding errorPdfBinding =
+                DialogLoadingProcessBinding.inflate(loadingProcessDialog.getLayoutInflater());
+        loadingProcessDialog.setContentView(errorPdfBinding.getRoot());
+        ColorDrawable back = new ColorDrawable(Color.TRANSPARENT);
+        InsetDrawable inset = new InsetDrawable(back, 20);
+        loadingProcessDialog.getWindow().setBackgroundDrawable(inset);
+        loadingProcessDialog.show();
     }
 }
